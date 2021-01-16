@@ -1,0 +1,14 @@
+FROM tomcat:9-jdk11
+
+ARG WAR_FILE
+COPY $WAR_FILE /usr/local/tomcat/webapps/ROOT.war
+
+COPY assets/tomcat/catalina.properties /usr/local/tomcat/conf/catalina.properties
+COPY assets/tomcat/context.xml /usr/local/tomcat/conf/context.xml
+COPY assets/tomcat/logging.properties /usr/local/tomcat/conf/logging.properties
+COPY assets/tomcat/server.xml /usr/local/tomcat/conf/server.xml
+COPY assets/tomcat/web.xml /usr/local/tomcat/conf/web.xml
+
+COPY assets/logback.xml /root/logback.xml
+
+CMD ["catalina.sh", "run"]
