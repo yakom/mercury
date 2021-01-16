@@ -1,0 +1,15 @@
+<configuration>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%level][%date{HH:mm:ss.SSS}][%thread][%logger{0}] %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="console" />
+    </root>
+
+    <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="INFO"/>
+
+</configuration>
